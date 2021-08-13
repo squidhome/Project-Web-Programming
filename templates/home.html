@@ -1,0 +1,42 @@
+{% extends "template.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/styles/home.css" type="text/css">
+{% endblock %}
+
+{% block title %}Galith - Home{% endblock %}
+
+{% block content %}
+    <div id="banner"></div>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h3>Engagement Rings</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, deserunt. Magni molestias neque exercitationem temporibus. Pariatur assumenda eum debitis inventore fugit temporibus suscipit animi quidem unde reprehenderit, exercitationem ab nulla.</p>
+        <p><span style="text-decoration: underline;">Start With A Design From Our Collection</span> | <span style="text-decoration: underlines;">Create A Custom Design</span></p>
+    </div>
+    <div class="d-flex flex-row justify-content-center align-items-center id="gallery">
+        <!-- arrow -->
+        <img src="" alt="">
+        <img class="slider-img" src="/static/placeholder.png" alt="">
+        <img class="slider-img" src="/static/placeholder.png" alt="">
+        <img class="slider-img" src="/static/placeholder.png" alt="">
+        <!-- arrow -->
+        <img src="" alt=""> 
+    </div>
+    <div class="d-flex flex-col justify-content-center align-items-center" id="collection">
+        <h3>Explore Our Collection</h3>
+        <div id="photos-collection">
+            <div class="d-flex flex-col justify-content-center align-items-center" id="earrings">
+                <h3>Earrings</h3>
+            </div>
+            <div class="d-flex flex-col justify-content-center align-items-center" id="rings">
+                <h3>Rings</h3>
+            </div>
+            <div class="d-flex flex-col justify-content-center align-items-center" id="bracelets">
+                <h3>Bracelets</h3>
+            </div>
+            <div class="d-flex flex-col justify-content-center align-items-center" id="necklaces">
+                <h3>Necklaces</h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}

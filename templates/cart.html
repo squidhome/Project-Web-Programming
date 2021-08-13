@@ -1,0 +1,104 @@
+{% extends "template.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/cart.css" type="text/css">
+{% endblock %}
+
+{% block title %}Galith - Your Cart{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-column align-items-center" style="padding-top: 100px">
+        {% if data|length <= 0 %}
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <img src="/static/empty-cart.png" height="150" width="150" alt="">
+                <h5 class="card-title" style="margin-top: 50px">
+                    Oops, it looks like your cart is empty :(
+                </h5>
+                <a href="/products" style="margin-top:16px">
+                    <button class="btn btn-outline-dark btn-md">Continue Shopping &rarr;</button>
+                </a>
+            </div>
+        {% else %}
+            <h1 class="card-title">Your Cart</h1>
+            <div id="continue-shop">
+                <a href="/products" style="margin-top:16px">
+                    <button class="btn btn-link btn-md">Continue Shopping &rarr;</button>
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>PRODUCT</p>
+                    </div>
+                    <div class="col-lg-2">
+                        <p>PRICE</p>
+                    </div>
+                    <div class="col-lg-2">
+                        <p>QUANTITY</p>
+                    </div>
+                    <div class="col-lg-2" style="text-align: right">
+                        <p>TOTAL</p>
+                    </div>
+                </div>
+                {% for i in range(0, data|length): %}
+                    <form action="/update-cart/{{ i }}" method="POST">
+                        <div class="row d-flex flex-row align-items-center cart-row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <img src="/static/{{ data[i].product.product_image }}" class="product-image" alt="">
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="d-flex flex-column">
+                                            <a href="/details/{{ data[i]._id }}">
+                                                <h5 class="card-title">{{ data[i].product.product_name }}</h5>
+                                            </a>
+                                            <div class="btn-panel">
+                                                {% if edit is None or edit != i %}
+                                                    <a href="/edit-cart/{{ i }}" class="btn-edit">
+                                                        <div class="btn btn-sm btn-link">Edit</div>
+                                                    </a>
+                                                {% else %}
+                                                    <button class="btn btn-sm btn-link">Save</button>
+                                                {% endif %}
+                                                <a href="/delete-from-cart/{{ i }}" class="btn-remove">
+                                                    <div class="btn btn-sm btn-link">Remove</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <p>Rp. {{ data[i].product.product_price }}</p>
+                            </div>
+                            <div class="col-lg-2">
+                                {% if edit is None or edit != i %}
+                                    <input type="number" min="1" max="3" value="3" disabled class="form-control input-lg" name="size" id="quantity">
+                                {% else %}
+                                    <input type="number" min="1" max="3" value="3" class="form-control input-lg" name="size" id="quantity">
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-2" style="text-align: right">
+                                <p>Rp. {{ data[i].product.product_price * quantity}}</p>
+                            </div>
+                        </div>
+                    </form>
+                {% endfor %}
+                <div class="row" id="total-panel">
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-2">SUBTOTAL</div>
+                    <div class="col-lg-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-4">
+                        <a href="/checkout">
+                            <div class="btn btn-primary btn-block">Checkout &rarr;</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

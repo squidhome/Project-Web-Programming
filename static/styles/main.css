@@ -1,0 +1,92 @@
+*, a {
+    color: #2E32FF;
+    background-color: #FFFFFF;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #FFFFFF;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+}
+
+.nav-link:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.navbar-brand:hover {
+    color: #000;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.card {
+    width: max-content;
+    border-radius: 25px;
+}
+
+.btn-margin {
+    margin-top: 16px;
+}
+
+.btn-outline-dark {
+    background-color: #FFFFFF;
+    border: #2E32FF solid 1px;
+    color: #2E32FF;
+}
+
+.btn-outline-dark:hover {
+    background-color: #2E32FF;
+    color: white;
+    border: #2E32FF solid 1px;
+}
+
+.btn {
+    transition: all .5s;
+}
+
+.btn-primary {
+    background-color: #2E32FF;
+    color: white;
+    border: #2E32FF solid 1px;
+    padding: 8px 16px;
+}
+
+.btn-primary:hover {
+    background-color: #FFFFFF;
+    color: #2E32FF;
+    border: #2E32FF solid 1px;
+}
+
+#btn-footer {
+    padding: 0px 16px;
+}
+
+.page-divider {
+    background-color: #2E32FF;
+    width: 1px;
+    height: 40vh;
+}
+
+.page-footer {
+    border-top: 1px solid #2E32FF;
+    padding: 50px 0;
+    margin: 50px auto;
+}
+
+.form-control {
+    border: #2E32FF solid 1px;
+    background-color: #FFFFFF;
+}

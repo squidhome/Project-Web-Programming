@@ -1,0 +1,23 @@
+.btn-link, .btn-link:hover {
+    color: #2E32FF;
+    padding: 0;
+}
+
+.container-fluid {
+    padding: 0 50px;
+    padding-top: 50px;
+}
+
+.product-image {
+    height: 100px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#total-panel {
+    margin: 50px 0;
+}
+
+.cart-row {
+    margin-bottom: 16px;
+}

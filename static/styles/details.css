@@ -1,0 +1,28 @@
+.navbar {
+    border-bottom: 1px solid #2E32FF;
+}
+
+#item-img {
+    height: 100vh;
+    width: 45vw;
+}
+
+.page-footer {
+    margin: 0;
+}
+
+.container-fluid {
+    width: 50%;
+}
+
+.card-text {
+    margin-top: 16px;
+}
+
+#form-container {
+    margin-top: 16px;
+}
+
+#quantity:focus {
+    background-color: transparent;
+}

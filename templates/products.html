@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/products.css" type="text/css">
+{% endblock %}
+
+{% block title %}Galith - Products{% endblock %}
+
+{% block content %}
+    {% if data|length == 0 %}
+        <div class="d-flex flex-column justify-content-center align-items-center" style="text-align: center; margin-top: 32px">
+            <h5 class="card-title">Hmm... It looks like we couldn't find
+                <br>what you were looking for. Try something else.</h5>
+        </div>
+    {% else %}
+        <div class="container-fluid" id="product-container">
+            <div class="row">
+                {% for i in range (0, data|length) %}
+                    <div class="col-lg-4" id="product-card">
+                        <img class="card-img-top" src="/static/{{ data[i].product_image }}" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ data[i].product_name }}</h4>
+                            <p class="card-text">Rp. {{ data[i].product_price }}</p>
+                            <a href="/details/{{ data[i]._id }}" class="btn btn-primary">See details</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
